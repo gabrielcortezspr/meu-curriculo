@@ -1,61 +1,171 @@
 export default function Home() {
   return (
     <>
-      <div>
+      <div className="HeaderContender">
         <header
           style={{
-            height: "12rem",                      // Altura fixa do elemento (12 rem = aprox. 192px)
-            margin: "0 auto",                     // Centraliza horizontalmente
-            padding: "1rem 1rem",                 // Espaçamento interno (top/bottom e left/right)
-            color: "#ffffffff",                       // Cor do texto (branco)
-            background: "rgba(21, 21, 21, 0.9)",  // Cor de fundo escura com leve transparência
-            borderRadius: "0px",                 // Sem bordas arredondadas
-            boxShadow: "0 2px 32px 0 rgba(0, 0, 0, 1)", // Sombra para dar profundidade
-            position: "relative",                // Necessário para elementos posicionados filhos
-            zIndex: 3,                            // Posição na pilha de camadas (mais acima)
-            backdropFilter: "blur(124px)",       // Efeito de desfoque no fundo (vidro fosco)
-            WebkitBackdropFilter: "blur(32px)",  // Suporte ao desfoque para navegadores WebKit (Safari, etc.)
+            height: "144px",
+            margin: "0 auto",
+            padding: "16px",
+            color: "#ffffffff",
+            background: "rgba(21, 21, 21, 0.9)",
+            borderRadius: "0px",
+            boxShadow: "0 2px 32px 0 rgba(0, 0, 0, 1)",
+            position: "relative",
+            zIndex: 3,
+            backdropFilter: "blur(100px)",
+            WebkitBackdropFilter: "blur(100px)",
           }}
         >
           {/* Conteúdo do header */}
         </header>
       </div>
 
-      <div>
+      <div className="MainContender">
         <main
           style={{
-            height: "150vh",                 // Altura da seção (150% da altura da tela)
-            width: "65%",                    // Largura relativa à tela
-            margin: "0 auto",                // Centraliza horizontalmente
-            padding: "1rem",                 // Espaçamento interno
-            color: "#ffffffff",                // Cor do texto
-            background: "rgba(80, 86, 91, 0.46)", // Cor de fundo com transparência
-            borderRadius: "0px",             // Cantos retos (sem borda arredondada)
-            boxShadow: "0 2px 32px 0 rgba(0, 0, 0, 1)", // Sombra para profundidade
-            position: "relative",           // Necessário se usar elementos posicionados dentro
-            zIndex: 1,                      // Ordem na pilha de camadas (quanto maior, mais acima)
-            backdropFilter: "blur(64px)",   // Desfoque do fundo (efeito de vidro fosco)
-            WebkitBackdropFilter: "blur(32px)", // Suporte para Safari
-            // border: "1px solid rgba(255, 255, 255, 0.1)", // Borda opcional
+            width: "1200px",
+            minHeight: "150vh", // Ajuste para ocupar mais espaço vertical
+            margin: "0 auto",
+            padding: "16px",
+            color: "#ffffffff",
+            background: "rgba(148, 159, 167, 0.46)",
+            borderRadius: "0px",
+            boxShadow: "0 2px 32px 0 rgba(0, 0, 0, 1)",
+            position: "relative",
+            zIndex: 1,
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
           }}
         >
-          {/* Quadrado branco posicionado sobre o main */}
+
+          {/* Quadrado perfil (agora dentro do fluxo!) */}
           <div
             style={{
-              position: "absolute",     // Posicionamento relativo ao <main>
-              top: "2rem",              // Distância do topo
-              left: "3rem",            // Distância da direita
-              width: "300px",           // Largura do quadrado
-              height: "300px",          // Altura do quadrado
-              backgroundColor: "#fff",  // Cor branca
-              borderRadius: "8px",      // Arredondamento (opcional)
-              boxShadow: "0 2px 12px rgba(0,0,0,0.2)", // Sombra leve
-              zIndex: 5,                // Acima do conteúdo interno
+              marginTop: "32px",
+              display: "flex",
+              alignItems: "flex-start", // ✅ alinha pelo topo
+              gap: "16px",
+              backgroundColor: "#1b1d1fdd",
+              padding: "16px",
+              borderRadius: "8px",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
+              backdropFilter: "blur(32px)",
+              WebkitBackdropFilter: "blur(32px)",
             }}
-          />
-          {/* Conteúdo principal */}
-          <p>Este é o conteúdo principal da página.</p>
-        </main> {/* AGORA está fechado corretamente */}
+          >
+            {/* Quadrado de perfil */}
+            <div
+              style={{
+                width: "140px",
+                height: "140px",
+                backgroundColor: "#cccccc",
+                borderRadius: "8px",
+              }}
+            ></div>
+
+            {/* Texto ao lado */}
+            <div style={{ color: "#ffffff" }}>
+              <h2 style={{ margin: 0 }}>Gabriel Cortez</h2>
+              <p style={{ margin: 0 }}>QA & Dev | Engenharia da Computação</p>
+            </div>
+          </div>
+
+          {/* Aba estilo Steam */}
+          <section
+            style={{
+              marginTop: "48px",
+              backgroundColor: "#1b1d1fdd",
+              padding: "24px",
+              borderRadius: "12px",
+              color: "#fff",
+              boxShadow: "0 2px 20px rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            <h2 style={{ marginBottom: "16px", fontSize: "1.5rem" }}>Tech Collector</h2>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                backgroundColor: "#111",
+                padding: "16px",
+                borderRadius: "8px",
+                marginBottom: "16px",
+              }}
+            >
+              {[
+                { label: "Projetos", value: 8 },
+                { label: "Stacks", value: 4 },
+                { label: "Contribuições", value: 12 },
+                { label: "Repositórios", value: 25 },
+              ].map((item, i) => (
+                <div key={i} style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: "1.75rem", fontWeight: "bold" }}>{item.value}</div>
+                  <div>{item.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ marginTop: "8px" }}>
+              <p style={{ marginBottom: "8px" }}>Destaques</p>
+              <div style={{ display: "flex", gap: "12px" }}>
+                {[1, 2, 3, 4].map(i => (
+                  <img
+                    key={i}
+                    src={`/img${i}.png`}
+                    style={{ width: "120px", height: "60px", objectFit: "cover", borderRadius: "6px" }}
+                    alt={`Destaque ${i}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Atividades Recentes */}
+          <section
+            style={{
+              marginTop: "32px",
+              backgroundColor: "#1b1d1fdd",
+              padding: "24px",
+              borderRadius: "12px",
+              color: "#fff",
+              boxShadow: "0 2px 20px rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            <h2 style={{ marginBottom: "16px", fontSize: "1.5rem" }}>Atividades Recentes</h2>
+
+            {/* Container vertical com gap */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  style={{
+                    backgroundColor: "#111",
+                    borderRadius: "8px",
+                    padding: "12px",
+                    display: "flex",
+                    gap: "12px",
+                    alignItems: "center",
+                    // REMOVA marginBottom aqui
+                  }}
+                >
+                  {/* Conteúdo do card */}
+                  <img
+                    src={`/thumb${i + 1}.png`}
+                    alt={`Projeto ${i + 1}`}
+                    style={{ width: "120px", height: "60px", objectFit: "cover", borderRadius: "4px" }}
+                  />
+                  <div style={{ flex: 1 }}>
+                    {/* resto do conteúdo */}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+
+        </main>
       </div>
     </>
   );
